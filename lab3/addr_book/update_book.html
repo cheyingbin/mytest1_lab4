@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>更改信息</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Iconos -->
+
+</head>
+<body background="/media/images/1.jpg">
+<form  method="post">
+<head><title>Update</title></head>
+<div align="center"><h1>更新《{{book.Title}}》</h1></div>
+<div align="center">
+<table border=1 align="center">
+    
+    
+    <tr bgcolor=#36f>
+        <th>作者</th>
+    </tr>
+    <tr>
+        <td><input name="author_name" type="text"  value={{ book.Author.Name }}></td>
+    </tr>
+    <tr bgcolor="gray">
+        <th>出版商</th>
+    </tr>
+    <tr>
+        <td><input name="publisher" type="text" value={{ book.Publisher }}></td>
+    </tr>
+    <tr bgcolor=#0f0>
+        <th>出版日期</th>
+    </tr>
+    <tr>
+        <td><input name="publishdate" type="text" value={{ book.PublishDate }}></td>
+    </tr>
+    <tr bgcolor="blue">
+        <th>价  格</th>
+    </tr>
+    <tr>
+        <td><input name="price" type="text" value={{ book.Price }}></td>
+    </tr>
+    
+    <tr bgcolor="red" align="center">
+        <th>操  作</th>
+    </tr>
+    <tr align="center">
+        <td><input type="submit" value="保存" onclick="location.href='/update_book_ok/'" > <input type="reset" value="取消"></td>
+    </tr>
+
+</table>
+</div>
+
+</form>
+<div style="text-align:center;">
+    <input type="image" src="/media/images/home.png" style="width:81px;height:37px;"value="返回主页" onClick="location.href='/lib_home/'"> 
+</body>
+</html>

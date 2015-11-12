@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>查找结果</title>
+    <style>
+     h1 {
+ 	color: #36f;
+	font-family: 'Open Sans', Arial, Helvetica, Sans-serif, Verdana, Tahoma;
+ 	font-size: 32px;
+ 	font-weight: 100;
+ 	text-align: center;
+ 	margin-top: 20px;
+         }
+        
+         h2{
+
+ 	color: #36f;
+	font-family: 'Open Sans', Arial, Helvetica, Sans-serif, Verdana, Tahoma;
+ 	font-size: 20px;
+ 	font-weight: 20;
+ 	text-align: center;
+    margin-top: 10px;
+         }
+    
+    </style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Iconos -->
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/media/css/style.css" media="screen" type="text/css" />
+
+</head>
+
+ <body background="/media/images/1.jpg">
+<div style="text-align:center;clear:both">
+<h1>查 询 结 果</h1></div>
+<div style="text-align:center;clear:both">
+<h3>您也能点击下面的 Add 按钮添加该作者的书本.</h3></div>
+<script src="/media/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/media/follow.js" type="text/javascript"></script>
+	<!-- Contenedor -->,
+	<ul id="accordion" class="accordion">
+    {% for book in books %}
+		<li>
+			<div class="link">
+            <i class="fa fa-paint-brush"></i>{{book.Title}}<i class="fa fa-chevron-down">
+            </i></div>
+			<ul class="submenu">
+				<li><a href="#">作者：{{book.Author.Name}} 年龄：{{book.Author.Age}} 国籍：{{book.Author.Country}}</a></li>
+				<li><a href="#">出版商：{{book.Publisher}}</a></li>
+				<li><a href="#">出版日期：{{book.PublishDate}}</a></li>
+				<li><a href="#">价格：{{book.Price}}</a></li>
+                <li>
+                <input type="image" value="" src="/media/images/delete.png" style="width:94px;height:37px;text-align:left;"onClick="location.href='/delete_book/?id={{book.id}}'"> 
+        <input type="image" value="更新" src="/media/images/update.png" style="width:94px;height:37px;text-align:right;"onClick="location.href='/update_book/?id={{book.id}}'">
+        </li>
+			</ul>
+		</li>
+        {% endfor %}
+	</ul>
+
+  <script src="/media/js/jquery.js"></script>
+
+<script src="/media/js/index.js"></script>
+  <div align="center">
+  <input type="image" src="/media/images/home.png" style="width:81px;height:37px;"value="返回主页" onClick="location.href='/lib_home/'">
+  <input type="image" value="添加图书" src="/media/images/add2.png" style="width:74px;height:37px;"onClick="location.href='/add_book2/?authorname={{author.Name}}'">
+  </div>
+
+</body>
+
+</html>
